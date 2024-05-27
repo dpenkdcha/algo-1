@@ -2,13 +2,13 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
 
-  int n;
-  int[][] arr;
-  int[][] grid;
-  WeightedQuickUnionUF weightedQuickUnionUF;
-  int top;
-  int bottom;
-  int opened;
+  private int n;
+  private int[][] arr;
+  private int[][] grid;
+  private WeightedQuickUnionUF weightedQuickUnionUF;
+  private int top;
+  private int bottom;
+  private int opened;
 
   // creates n-by-n grid, with all sites initially blocked
   public Percolation(int n) {
@@ -63,7 +63,7 @@ public class Percolation {
     validate(row, col);
     opened++;
     int xyValue = getxyValue(row, col);
-    return weightedQuickUnionUF.connected(xyValue, top);
+    return weightedQuickUnionUF.find(xyValue) == weightedQuickUnionUF.find(top);
   }
 
   // returns the number of open sites
@@ -73,7 +73,7 @@ public class Percolation {
 
   // does the system percolate?
   public boolean percolates() {
-    return weightedQuickUnionUF.connected(top, bottom);
+    return weightedQuickUnionUF.find(top) == weightedQuickUnionUF.find(bottom);
   }
 
   private void validate(int row, int col) {
