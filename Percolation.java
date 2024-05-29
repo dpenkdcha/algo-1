@@ -3,8 +3,7 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 public class Percolation {
 
   private int n;
-  private int[][] arr;
-  private int[][] grid;
+  private boolean[][] grid;
   private WeightedQuickUnionUF weightedQuickUnionUF;
   private int top;
   private int bottom;
@@ -14,8 +13,7 @@ public class Percolation {
   public Percolation(int n) {
     if (n <= 0) throw new IllegalArgumentException("Grid size must be greater than 0");
     this.n = n;
-    arr = new int[n][n];
-    grid = new int[n][n];
+    grid = new boolean[n][n];
     weightedQuickUnionUF = new WeightedQuickUnionUF(n * n + 2);
     top = n * n;
     bottom = n * n + 1;
@@ -32,7 +30,7 @@ public class Percolation {
     validate(row, col);
     if (isOpen(row, col))
       return;
-    grid[row - 1][col - 1] = 1;
+    grid[row - 1][col - 1] = true;
     opened++;
     int xyValue = getxyValue(row, col);
 
@@ -55,13 +53,12 @@ public class Percolation {
   // is the site (row, col) open?
   public boolean isOpen(int row, int col) {
     validate(row, col);
-    return grid[row - 1][col - 1] == 1;
+    return grid[row - 1][col - 1] == true;
   }
 
   // is the site (row, col) full?
   public boolean isFull(int row, int col) {
     validate(row, col);
-    opened++;
     int xyValue = getxyValue(row, col);
     return weightedQuickUnionUF.find(xyValue) == weightedQuickUnionUF.find(top);
   }
