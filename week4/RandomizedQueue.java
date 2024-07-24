@@ -3,13 +3,13 @@ package week4;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import edu.princeton.cs.algs4.StdOut;
+// import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
-public class RandomizedQueue implements Iterable<Item> {
+public class RandomizedQueue<Item> implements Iterable<Item> {
 
   private Node first, last;
-  static RandomizedQueue randomizedQueue;
+  private int size;
 
   // construct an empty randomized queue
   public RandomizedQueue() {
@@ -23,13 +23,14 @@ public class RandomizedQueue implements Iterable<Item> {
 
   // return the number of items on the randomized queue
   public int size() {
-    Iterator<Item> iterator = randomizedQueue.iterator();
-    int count = 0;
-    while (iterator.hasNext()) {
-      StdOut.print(iterator.next().value + " ");
-      count++;
-    }
-    return count;
+    // Iterator<Item> iterator = iterator();
+    // int count = 0;
+    // while (iterator.hasNext()) {
+    // iterator.next();
+    // // StdOut.print(iterator.next().value + " ");
+    // count++;
+    // }
+    return size;
   }
 
   // add the item
@@ -46,6 +47,7 @@ public class RandomizedQueue implements Iterable<Item> {
     } else {
       oldLast.next = last;
     }
+    size++;
   }
 
   // remove and return a random item
@@ -53,18 +55,24 @@ public class RandomizedQueue implements Iterable<Item> {
     if (isEmpty()) {
       throw new NoSuchElementException("Empty Queue");
     }
-    int randomIndex = StdRandom.uniformInt(0, randomizedQueue.size());
-    if(randomIndex == 0) {
-      first = first.next;
-      return first.item;
+    int randomIndex = StdRandom.uniformInt(0, size());
+    if (randomIndex == 1) {
+      Node firstItem = first;
+      if (size != 1)
+        first = first.next;
+      else
+        first = null;
+      size--;
+      return firstItem.item;
     }
     Node randomPrevNode = first;
-    for (int i = 0; i < randomIndex - 1; i++) {
+    for (int i = 1; i < randomIndex; i++) {
       randomPrevNode = randomPrevNode.next;
     }
     Node randomCurNode = randomPrevNode.next;
     randomPrevNode.next = randomCurNode.next;
     randomCurNode.next = null;
+    size--;
     return randomCurNode.item;
   }
 
@@ -74,8 +82,8 @@ public class RandomizedQueue implements Iterable<Item> {
       throw new NoSuchElementException("Empty Queue");
     }
     Node randomNode = first;
-    int randomIndex = StdRandom.uniformInt(0, randomizedQueue.size());
-    for (int i = 0; i < randomIndex - 1; i++) {
+    int randomIndex = StdRandom.uniformInt(0, size());
+    for (int i = 1; i < randomIndex; i++) {
       randomNode = randomNode.next;
     }
     return randomNode.item;
@@ -90,6 +98,7 @@ public class RandomizedQueue implements Iterable<Item> {
 
   // unit testing (required)
   public static void main(String[] args) {
+    // RandomizedQueue randomizedQueue;
     // randomizedQueue = new RandomizedQueue();
     // randomizedQueue.addFirst(new Item("1"));
     // randomizedQueue.addLast(new Item("2"));
@@ -105,12 +114,12 @@ public class RandomizedQueue implements Iterable<Item> {
 
   }
 
-  public class Node {
+  private class Node {
     Item item;
     Node next;
   }
 
-  public class ListIterator implements Iterator<Item> {
+  private class ListIterator implements Iterator<Item> {
 
     private Node current = first;
 
