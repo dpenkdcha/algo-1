@@ -6,12 +6,22 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FastCollinearPoints",
+            "request": "launch",
+            "mainClass": "week6.FastCollinearPoints",
+            "projectName": "algo-1_2_7c8d6292",
+            "args": [
+                "week6\\input50.txt"
+            ]
+        },
+        {
+            "type": "java",
             "name": "BruteCollinearPoints",
             "request": "launch",
             "mainClass": "week6.BruteCollinearPoints",
             "projectName": "algo-1_2_7c8d6292",
             "args": [
-                "week6\\rs1423.txt"
+                "week6\\input8.txt"
             ]
         },
         {

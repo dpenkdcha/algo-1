@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdStats;
 /**
  * MergeSort
  */
-public class MergeSort {
+public class MergeSort<T> {
 
   public static void main(String[] args) {
 

@@ -11,10 +11,8 @@ package week6;
  *
  ******************************************************************************/
 
-import java.awt.Color;
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdOut;
 
 public class Point implements Comparable<Point> {
 
@@ -108,7 +106,6 @@ public class Point implements Comparable<Point> {
     return new Comparator<Point>() {
       @Override
       public int compare(Point p1, Point p2) {
-        // TODO Auto-generated method stub
         if (slopeTo(p1) < slopeTo(p2))
           return -1;
         else if (slopeTo(p1) > slopeTo(p2))
@@ -136,15 +133,15 @@ public class Point implements Comparable<Point> {
    */
   public static void main(String[] args) {
     /* YOUR CODE HERE */
-    StdDraw.setXscale(0, 32767);
-    StdDraw.setYscale(0, 32767);
-    StdDraw.setPenColor(Color.BLUE);
+    // StdDraw.setXscale(0, 32767);
+    // StdDraw.setYscale(0, 32767);
+    // StdDraw.setPenColor(Color.BLUE);
 
-    Point point1 = new Point(1, 1);
-    Point point2 = new Point(10000, 10000);
-    LineSegment lineSegment = new LineSegment(point1, point2);
-    StdOut.println(lineSegment.toString());
-    lineSegment.draw();
+    // Point point1 = new Point(1, 1);
+    // Point point2 = new Point(10000, 10000);
+    // LineSegment lineSegment = new LineSegment(point1, point2);
+    // StdOut.println(lineSegment.toString());
+    // lineSegment.draw();
 
   }
 }

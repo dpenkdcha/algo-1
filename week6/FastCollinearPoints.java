@@ -7,16 +7,13 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 
-/**
- * BruteCollinearPoints
- */
-public class BruteCollinearPoints {
+public class FastCollinearPoints {
 
   private int numberOfSeg = 0;
   private ArrayList<LineSegment> lineSegmentsList = new ArrayList<>();
 
-  // finds all line segments containing 4 points
-  public BruteCollinearPoints(Point[] points) {
+  // finds all line segments containing 4 or more points
+  public FastCollinearPoints(Point[] points) {
     if (points == null) {
       throw new IllegalArgumentException("Invalid points");
     }
@@ -35,28 +32,48 @@ public class BruteCollinearPoints {
 
     for (int i = 0; i < pLength - 1; i++) {
       double[] slopOfIWithJ = new double[pLength];
+      int matchCOunt = 0;
       for (int j = i + 1; j < pLength; j++) {
         slopOfIWithJ[j] = points[i].slopeTo(points[j]);
-        int matchCOunt = 0;
-        for (int k = i + 1; k < j; k++) {
-          if (slopOfIWithJ[k] == slopOfIWithJ[j]) {
-            matchCOunt++;
+        if (slopOfIWithJ[j] == slopOfIWithJ[j - 1]) {
+          matchCOunt++;
+        } else if (slopOfIWithJ[j] > slopOfIWithJ[j - 1]) {
+          if (matchCOunt >= 2) {
+            LineSegment lineSegment = new LineSegment(points[i], points[j]);
+            lineSegmentsList.add(lineSegment);
+            numberOfSeg++;
+            matchCOunt = 0;
+
+            StdDraw.setPenRadius(.0005);
+            StdDraw.setPenColor(Color.BLUE);
+            StdOut.println(lineSegment);
+            lineSegment.draw();
+            StdDraw.show();
+            StdOut.println("I " + i + " " + points[i] +
+                " J " + j + " " + points[j]);
+            StdOut.println();
           }
         }
-        if (matchCOunt == 2) {
-          LineSegment lineSegment = new LineSegment(points[i], points[j]);
-          lineSegmentsList.add(lineSegment);
-          numberOfSeg++;
+        // for (int k = i + 1; k < j; k++) {
+        // if (slopOfIWithJ[k] == slopOfIWithJ[j]) {
+        // matchCOunt++;
+        // }
+        // }
+      }
+      if (matchCOunt >= 2) {
+        LineSegment lineSegment = new LineSegment(points[i], points[pLength - 1]);
+        lineSegmentsList.add(lineSegment);
+        numberOfSeg++;
+        matchCOunt = 0;
 
-          // StdDraw.setPenRadius(.0005);
-          // StdDraw.setPenColor(Color.BLUE);
-          // StdOut.println(lineSegment);
-          // lineSegment.draw();
-          // StdDraw.show();
-          // StdOut.println("I " + i + " " + points[i] +
-          //     " J " + j + " " + points[j]);
-          // StdOut.println();
-        }
+        StdDraw.setPenRadius(.0005);
+        StdDraw.setPenColor(Color.BLUE);
+        StdOut.println(lineSegment);
+        lineSegment.draw();
+        StdDraw.show();
+        StdOut.println("I " + i + " " + points[i] +
+            " J " + (pLength - 1) + " " + points[pLength - 1]);
+        StdOut.println();
       }
     }
   }
@@ -136,13 +153,15 @@ public class BruteCollinearPoints {
     StdDraw.show();
 
     // print and draw the line segments
-    // BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+    FastCollinearPoints collinear = new FastCollinearPoints(points);
     // StdDraw.setPenRadius(0.0005);
     // StdDraw.setPenColor(Color.BLUE);
     // for (LineSegment segment : collinear.segments()) {
     StdOut.println();
+    StdOut.println(collinear.numberOfSeg);
     // segment.draw();
     // }
     StdDraw.show();
   }
+
 }
