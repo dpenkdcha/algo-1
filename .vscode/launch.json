@@ -1,0 +1,162 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "BruteCollinearPoints",
+            "request": "launch",
+            "mainClass": "BruteCollinearPoints",
+            "projectName": "algo-1_2_7c8d6292",
+            "args": ["input8.txt"]
+        },
+        {
+            "type": "java",
+            "name": "Point",
+            "request": "launch",
+            "mainClass": "Point",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "InsertionSort",
+            "request": "launch",
+            "mainClass": "Sorting.InsertionSort",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "MergeSort",
+            "request": "launch",
+            "mainClass": "Sorting.MergeSort",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "SelectionSort",
+            "request": "launch",
+            "mainClass": "Sorting.SelectionSort",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "HelloGoodbye",
+            "request": "launch",
+            "mainClass": "hello.HelloGoodbye",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld",
+            "request": "launch",
+            "mainClass": "hello.HelloWorld",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "RandomWord",
+            "request": "launch",
+            "mainClass": "hello.RandomWord",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "PercolationStats",
+            "request": "launch",
+            "mainClass": "percolation.PercolationStats",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "Deque",
+            "request": "launch",
+            "mainClass": "queues.Deque",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "Permutation",
+            "request": "launch",
+            "mainClass": "queues.Permutation",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "RandomizedQueue",
+            "request": "launch",
+            "mainClass": "queues.RandomizedQueue",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "tmp.test",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "HelloGoodbye(1)",
+            "request": "launch",
+            "mainClass": "week1.HelloGoodbye",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld(1)",
+            "request": "launch",
+            "mainClass": "week1.HelloWorld",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "RandomWord(1)",
+            "request": "launch",
+            "mainClass": "week1.RandomWord",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "PercolationStats(1)",
+            "request": "launch",
+            "mainClass": "week2.PercolationStats",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "PercolationVisualizer",
+            "request": "launch",
+            "mainClass": "week2.PercolationVisualizer",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "Deque(1)",
+            "request": "launch",
+            "mainClass": "week4.Deque",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "Permutation(1)",
+            "request": "launch",
+            "mainClass": "week4.Permutation",
+            "projectName": "algo-1_2_7c8d6292"
+        },
+        {
+            "type": "java",
+            "name": "RandomizedQueue(1)",
+            "request": "launch",
+            "mainClass": "week4.RandomizedQueue",
+            "projectName": "algo-1_2_7c8d6292"
+        }
+    ]
+}
