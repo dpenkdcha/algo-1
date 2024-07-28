@@ -1,3 +1,5 @@
+package week6;
+
 /*************************************************************************
  * Compilation: javac LineSegment.java
  * Execution: none

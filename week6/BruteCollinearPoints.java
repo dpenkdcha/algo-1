@@ -1,3 +1,5 @@
+package week6;
+
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -28,8 +30,17 @@ public class BruteCollinearPoints {
           }
         }
         if (matchCOunt == 2) {
-          lineSegmentsList.add(new LineSegment(points[i], points[j]));
+          LineSegment lineSegment = new LineSegment(points[i], points[j]);
+          lineSegmentsList.add(lineSegment);
           numberOfSeg++;
+          // StdDraw.setPenRadius(.0005);
+          // StdDraw.setPenColor(Color.BLUE);
+          // StdOut.println(lineSegment);
+          // lineSegment.draw();
+          // StdDraw.show();
+          // StdOut.println("I " + i + " " + points[i] +
+          // " J " + j + " " + points[j]);
+          // StdOut.println();
         }
       }
     }
@@ -71,10 +82,10 @@ public class BruteCollinearPoints {
     }
     StdDraw.show();
 
-    StdDraw.setPenRadius(.0005);
-    StdDraw.setPenColor(Color.BLUE);
     // print and draw the line segments
     BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+    StdDraw.setPenRadius(.0005);
+    StdDraw.setPenColor(Color.BLUE);
     for (LineSegment segment : collinear.segments()) {
       StdOut.println(segment);
       segment.draw();

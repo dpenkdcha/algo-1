@@ -1,3 +1,5 @@
+package week6;
+
 
 /******************************************************************************
  *  Compilation:  javac Point.java
@@ -70,7 +72,7 @@ public class Point implements Comparable<Point> {
     else if (that.x - this.x == 0)
       return Double.POSITIVE_INFINITY;
     else
-      return (that.y - this.y) / (that.x - this.x);
+      return (double) (that.y - this.y) / (double) (that.x - this.x);
   }
 
   /**
