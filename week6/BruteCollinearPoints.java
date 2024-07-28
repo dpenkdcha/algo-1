@@ -50,7 +50,6 @@ public class BruteCollinearPoints {
   }
 
   public static void main(String[] args) {
-
     // read the n points from a file
     In in = new In(args[0]);
     int n = in.readInt();
@@ -65,12 +64,15 @@ public class BruteCollinearPoints {
     StdDraw.enableDoubleBuffering();
     StdDraw.setXscale(0, 32768);
     StdDraw.setYscale(0, 32768);
-    StdDraw.setPenColor(Color.BLUE);
+    StdDraw.setPenColor(Color.RED);
+    StdDraw.setPenRadius(.005);
     for (Point p : points) {
       p.draw();
     }
     StdDraw.show();
 
+    StdDraw.setPenRadius(.0005);
+    StdDraw.setPenColor(Color.BLUE);
     // print and draw the line segments
     BruteCollinearPoints collinear = new BruteCollinearPoints(points);
     for (LineSegment segment : collinear.segments()) {
