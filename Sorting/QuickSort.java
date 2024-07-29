@@ -8,6 +8,22 @@ public class QuickSort {
     sort(a, 0, a.length - 1);
   }
 
+  public static Comparable select(Comparable[] a, int k) {
+    StdRandom.shuffle(a);
+    int lo = 0, hi = a.length - 1;
+
+    while (hi > lo) {
+      int j = partition(a, lo, hi);
+      if (j < k)
+        lo = hi + 1;
+      if (j > k)
+        hi = j - 1;
+      else
+        return a[k];
+    }
+    return a[k];
+  }
+
   private static void sort(Comparable[] a, int lo, int hi) {
     if (hi <= lo)
       return;
