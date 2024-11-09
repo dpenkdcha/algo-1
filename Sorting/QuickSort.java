@@ -42,7 +42,7 @@ public class QuickSort {
       }
 
       while (less(a[lo], a[--j])) {
-        if (i == hi)
+        if (j == lo)
           break;
       }
 
